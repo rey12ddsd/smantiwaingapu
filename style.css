@@ -1,0 +1,420 @@
+/* ==============================================
+   VARIABLE WARNA
+================================================= */
+:root {
+    --blue: #1e3a8a;
+    --light-blue: #60a5fa;
+    --cream: #f6f1e9;
+    --text: #1a1a1a;
+    --bg: #ffffff;
+}
+
+/* MODE GELAP */
+.dark {
+    --bg: #111827;
+    --text: #e5e7eb;
+    --cream: #1f2937;
+}
+
+/* ==============================================
+   GLOBAL
+================================================= */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.4s, color 0.4s;
+}
+
+h2 { color: var(--blue); }
+
+/* ==============================================
+   PRELOADER
+================================================= */
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: var(--blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    z-index: 9999;
+    animation: fadeText 1.5s infinite alternate;
+}
+
+@keyframes fadeText {
+    from { opacity: 0.5; letter-spacing: 1px; }
+    to { opacity: 1; letter-spacing: 4px; }
+}
+
+/* ==============================================
+   NAVBAR SUPER MODERN
+================================================= */
+header.nav {
+    background: linear-gradient(90deg, var(--blue), var(--light-blue));
+    padding: 20px 40px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* === LOGO NEON GLOW === */
+header.nav h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px var(--light-blue),
+        0 0 40px var(--light-blue),
+        0 0 80px var(--blue);
+    animation: neonGlow 3s infinite alternate;
+}
+
+@keyframes neonGlow {
+    0% {
+        text-shadow:
+            0 0 3px #fff,
+            0 0 6px #fff,
+            0 0 12px var(--light-blue),
+            0 0 25px var(--light-blue),
+            0 0 40px var(--blue);
+        opacity: 0.9;
+    }
+    100% {
+        text-shadow:
+            0 0 10px #fff,
+            0 0 20px #fff,
+            0 0 35px var(--light-blue),
+            0 0 60px var(--light-blue),
+            0 0 90px var(--blue);
+        opacity: 1;
+
+        .blink {
+    font-size: 50px;
+    font-weight: bold;
+    color: #00eaff;
+    text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
+
+    }
+}
+
+/* === MENU DENGAN IKON === */
+nav a {
+    margin-right: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding-left: 20px;
+}
+
+nav a::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-size: 14px;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+nav a:hover::before {
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+nav a:hover {
+    color: #fff;
+    text-shadow: 0 0 6px white;
+}
+
+/* DROPDOWN CLICK */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px 12px;
+    transition: .3s;
+}
+
+.dropbtn:hover {
+    color: var(--cream);
+}
+
+/* Hidden by default */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 180px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    overflow: hidden;
+    animation: fadeDown .3s ease;
+    z-index: 10;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+    color: var(--text);
+}
+
+.dropdown-content a:hover {
+    background: var(--light-blue);
+    color: white;
+}
+
+/* Animasi */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Tombol mode gelap */
+#darkToggle {
+    padding: 6px 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* ==============================================
+   HERO SECTION
+================================================= */
+.hero {
+    height: 70vh;
+    background: url('https://s3.schoolmedia.id/01-cms-website/sman3waingapu.sch.id/slide/rhluc1732084478.png') center/cover no-repeat;
+    display: flex;
+     justify-content: center flex-start;
+    align-items: center flex-start;
+    padding-top: 40px;
+    color: white;
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+.hero h2 {
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;       /* agar teks benar-benar center */
+    width: 100%; 
+    animation: glow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #4facfe;
+        opacity: 0.6;
+    }
+    to {
+        text-shadow: 0 0 20px #4facfe, 0 0 40px #00f2fe;
+        opacity: 1;
+    }
+}
+
+
+/* ==============================================
+   CARD PREMIUM
+================================================= */
+.card {
+    background: var(--cream);
+    padding: 40px;
+    margin: 40px;
+    border-radius: 20px;
+    animation: fadeIn 1s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* ==============================================
+   TEAM (Struktur)
+================================================= */
+.team {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.team img {
+    width: 120px; 
+    height: 120px; 
+    border-radius: 50%; 
+    border: 4px solid var(--blue);
+    transition: .3s;
+}
+.team img:hover {
+    transform: scale(1.1);
+}
+
+/* ==============================================
+   NEWS GRID
+================================================= */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.news-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: .3s;
+}
+
+.news-card:hover {
+    transform: scale(1.05);
+}
+
+.news-card img {
+    width: 100%; 
+    height: 180px; 
+    object-fit: cover;
+}
+
+.glass {
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.15);
+}
+
+/* ==============================================
+   GALLERY SLIDER
+================================================= */
+.slider {
+    position: relative;
+}
+
+.slides img {
+    width: 100%;
+    border-radius: 15px;
+    display: none;
+}
+
+.slides img.active {
+    display: block;
+    animation: fadeIn .7s;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 22px;
+    background: var(--blue);
+    color: white;
+    border-radius: 8px;
+}
+
+/* ==============================================
+   FORM PPDB
+================================================= */
+form input, form button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid var(--blue);
+}
+
+form button {
+    background: var(--blue);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+}
+form button:hover {
+    background: var(--light-blue);
+}
+
+/* ==============================================
+   FOOTER
+================================================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--blue);
+    color: white;
+}
+
+/* ==============================================
+   ANIMASI GLOBAL
+================================================= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================== */
+/* TABEL INFORMASI SEKOLAH   */
+/* ========================== */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.info-table tr:nth-child(even) {
+    background: #f3f6ff;
+}
+
+.info-table td {
+    padding: 12px 18px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.info-table tr:last-child td {
+    border-bottom: none;
+}
+
+.info-table td:first-child {
+    font-weight: 600;
+    color: var(--blue);
+    width: 35%;
+}
+
+/* Hero kecil untuk halaman lain */
+.small-hero {
+    height: 30vh;
+    background: url('../herocover.jpg') center/cover no-repeat;
+}
+
